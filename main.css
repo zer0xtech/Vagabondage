@@ -1,0 +1,172 @@
+@font-face {
+    font-family: "VagabondFont";
+    src: url(fonts/TotalEclipse.ttf);
+}
+
+
+.barrenav {
+  border-radius: 40px;
+  background-color: white;
+  color: black;
+  opacity: 90%;
+  padding:5px 20px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  position:fixed;
+  left: 50px;
+  right: 50px;
+  top:10px;
+}
+
+.barrenav > div a:not(#LienLogo) {
+    border: 2px solid black;
+    border-radius: 25px;
+    padding: 10px 20px;
+    display: inline-block;
+}
+
+.BoutonProfil {
+    margin-right: 100px;
+}
+
+div a {
+    text-decoration:  none ;
+    font-size: 30px;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.SiteLogo {
+    align-items: center;
+    display: flex;
+    padding: 10px;
+}
+
+.BoutonRecherche {
+    align-items: center;
+    display: flex;
+    padding: 10px;
+    gap: 5àx;
+}
+
+.BoutonRecherche input{
+    border: 2px solid black;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 30px;
+    outline: none;
+}
+
+.BoutonRecherche button {
+    border: 2px solid black;
+    border-radius: 25px;
+    padding: 10px 20px;
+    background-color: white;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.Commentaires input {
+    border: 2px solid black;
+    border-radius: 25px;
+    padding: 5px 5px;
+    font-size: 15px;
+    outline: none;
+    margin: 5px;
+}
+
+body {
+    background-color: black;
+}
+
+.gallery {
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 135px;
+    height:auto;
+    display:grid;
+    justify-content: center;
+    grid-template-columns: repeat(3, 1fr);
+    gap:40px 30px;
+    padding: 20px;
+}
+
+.publications {
+    /* width: 450px; */
+    /* height: 750px; */
+    background: grey;
+    color:beige;
+    font-size: 25px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.Username {
+    margin-bottom: 10px;
+}
+
+.Username > a {
+        font-family: "VagabondFont";
+        font-size: 160%;
+        color:white;
+}
+
+.Images {
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 20px;
+    margin: 5px;
+}
+
+.BoutonsPosts {
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+    padding: 5px;
+}
+
+.Likes {
+    border-top: 1px solid black;
+    font-size: 155%;
+    margin: 5px;
+    padding: 5px;
+}
+
+.Description {
+    margin: 5px;
+    border-bottom: 1px solid black;
+    margin-bottom: 20px;
+}
+
+.Commentaires {
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.EspaceCommentaires {
+    border: 1px solid black;
+    border-radius: 20px;
+    margin: 5px;
+    padding: 5px;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    width: 350px;
+    height: 40px;
+}
+
+p {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+    border-radius: 20px;
+    padding: 5px;
+}
+
