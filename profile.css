@@ -97,7 +97,6 @@ button {
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
     justify-content: space-between;
-    margin: 5px;
     padding: 10px;
     border-top: 1px solid black;
 }
