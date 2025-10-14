@@ -159,13 +159,14 @@ body {
 }
 
 .EspaceCommentaires {
+    display: flex;
     border: 1px solid black;
     border-radius: 20px;
     margin: 5px;
     padding: 5px;
     overflow-y: scroll;
     scrollbar-width: thin;
-    width: 570px;
+    /* width: 100%; */
     height: 90px;
 }
 
