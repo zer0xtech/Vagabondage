@@ -7,5 +7,6 @@ Website themed around the manga Vagabond created for a PHP/HTML/CSS project.
 * Open up the website from the Laragon app
 
 ## IMPROVEMENTS
-* Clean the code (its NOT optimized & NOT beautiful)
+* Clean up the code (its NOT optimized & NOT beautiful)
+* Create one single CSS file for all the PHP pages
 * Create a pagination system if you have too much posts on a page
