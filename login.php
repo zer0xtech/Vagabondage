@@ -41,7 +41,7 @@ if (isset($_POST["submit"])) {
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="login.css">
-    <title>Document</title>
+    <title>Connexion</title>
 </head>
 <body>
     <div class="barrenav">
@@ -52,8 +52,10 @@ if (isset($_POST["submit"])) {
             <a href="index.php">Accueil</a>
         </div>
         <div class ="BoutonRecherche">
-            <input type="search" placeholder="Miyamoto, chapitre 328..."/>
-            <button>Chercher</button>
+            <form action="search.php" method="GET">
+                <input type="search" name="search_space" placeholder="Rechercher un utilisateur..." required>
+                <button type="submit">Chercher</button>
+            </form>
         </div>
         <div>
             <?php
@@ -67,23 +69,26 @@ if (isset($_POST["submit"])) {
         </div>
     </div>
 
-    <div class="login-form">
-        <form action ="" method="POST">
+    <div class="logins-form">
+        <form action="" method="POST">
             <div class="Images">
-                <img src="images\VagabondLogo.jpg" witdh="100px"; height="150px">
+                <img src="images\VagabondLogo.jpg"; height="250px">
             </div>
-            <div class="form-inputs">
-                <div class="UsernameInput">
-                    <input type="text" name="username" placeholder="Username">
-                </div>
-                <div class="PasswordInput">
-                    <input type="password" name="password" placeholder="Password">
-                </div>
-                <div class="SubmitInput">
-                    <input type="submit" name="submit">
-                </div>
+            <div class="Title">
+                <center>
+                    <a>CONNEXION</a> 
+                </center>
             </div>
-            <a href="register.php">Register</a>
+            <hr>
+            <div class="login-elements">
+                <input type="text" name="username" placeholder="Username">
+            </div>
+            <div class="login-elements">
+                <input type="password" name="password" placeholder="Password">
+            </div>
+            <div class="login-elements">
+                <input type="submit" name="submit" value="Se connecter">
+            </div>
         </form>
     </div>
 </body>

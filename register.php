@@ -20,16 +20,15 @@ if (isset($_POST["submit"])) {
     $duplicate = mysqli_stmt_get_result($stmt);
 
     if(mysqli_num_rows($duplicate) > 0){
-        echo "<script> alert('Username is already used');</script>";
+        echo "<label>('Username has already been used.');</label>";
     }
     else{
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-        $stmt = mysqli_prepare($conn, "INSERT INTO users (username, password) VALUES (?, ?)");
-        mysqli_stmt_bind_param($stmt, "ss", $username, $hashed_password);
-        mysqli_stmt_execute($stmt);
+        $create_account = mysqli_prepare($conn, "INSERT INTO users (username, password) VALUES (?, ?)");
+        mysqli_stmt_bind_param($create_account, "ss", $username, $hashed_password);
+        mysqli_stmt_execute($create_account);
 
-        echo "<script> alert('Registration successful');</script>";
         header("Location: login.php");
     }
 }
@@ -39,8 +38,8 @@ if (isset($_POST["submit"])) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="login.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="register.css">
+    <title>Création compte</title>
 </head>
 <body>
     <div class="barrenav">
@@ -51,8 +50,10 @@ if (isset($_POST["submit"])) {
             <a href="index.php">Accueil</a>
         </div>
         <div class ="BoutonRecherche">
-            <input type="search" placeholder="Miyamoto, chapitre 328..."/>
-            <button>Chercher</button>
+            <form action="search.php" method="GET">
+                <input type="search" name="search_space" placeholder="Rechercher un utilisateur..." required>
+                <button type="submit">Chercher</button>
+            </form>
         </div>
         <div>
             <?php
@@ -75,23 +76,26 @@ if (isset($_POST["submit"])) {
         </div>
     </div>
 
-    <div class="login-form">
-        <form action ="" method="POST">
+    <div class="registration-form">
+        <form action="" method="POST">
             <div class="Images">
-                <img src="images\VagabondLogo.jpg" witdh="100px"; height="250px">
+                <img src="images\VagabondLogo.jpg"; height="250px">
             </div>
-            <div class="form-inputs">
-                <div class="UsernameInput">
-                    <input type="text" name="username" placeholder="Username">
-                </div>
-                <div class="PasswordInput">
-                    <input type="password" name="password" placeholder="Password">
-                </div>
-                <div class="SubmitInput">
-                    <input type="submit" name="submit">
-                </div>
+            <div class="Title">
+                <center>
+                    <a>CREER UN COMPTE</a> 
+                </center>
             </div>
-            <a href="login.php">Login</a>
+            <hr>
+            <div class="register-elements">
+                <input type="text" name="username" placeholder="Username">
+            </div>
+            <div class="register-elements">
+                <input type="password" name="password" placeholder="Password">
+            </div>
+            <div class="register-elements">
+                <input type="submit" name="submit" value="Créer un compte">
+            </div>
         </form>
     </div>
 </body>

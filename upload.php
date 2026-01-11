@@ -19,16 +19,16 @@ if (isset($_POST["submit"])) {
 
     if(in_array($image_ext, $allowed_extensions)) {
         if(move_uploaded_file($image_tmp, $folder)) {
-            $stmt = $conn->prepare("INSERT INTO posts (user_id, image_path, description) VALUES (?, ?, ?)");
-            $stmt->bind_param("iss", $user_id, $folder, $description);
+            $stmt = mysqli_prepare($conn, "INSERT INTO posts (creator_id, image_path, description) VALUES (?, ?, ?)");
+            mysqli_stmt_bind_param($stmt, "iss", $user_id, $folder, $description);
 
-            if($stmt->execute()) {
-                echo "<script>alert('img uploaded');</script>";
+            if(mysqli_stmt_execute($stmt)) {
+                echo "<script>alert('Image uploaded');</script>";
             } else {
-                echo "<script>alert('img not uploaded');</script>";
+                echo "<script>alert('Image not uploaded');</script>";
             }
     } else {
-        echo "<script>alert('Extension non autorisée. Formats acceptés : jpg, jpeg, png, gif, webp');</script>";
+        echo "<script>alert('Format d'image incorrect.');</script>";
     }
 } else {
     echo "<script>alert('Veuillez sélectionner une image');</script>";
@@ -40,7 +40,7 @@ if (isset($_POST["submit"])) {
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="upload.css">
-    <title>Document</title>
+    <title>Upload d'images</title>
 </head>
 <body>
     <div class="barrenav">
@@ -51,8 +51,10 @@ if (isset($_POST["submit"])) {
             <a href="index.php">Accueil</a>
         </div>
         <div class ="BoutonRecherche">
-            <input type="search" placeholder="Miyamoto, chapitre 328..."/>
-            <button>Chercher</button>
+            <form action="search.php" method="GET">
+                <input type="search" name="search_space" placeholder="Rechercher un utilisateur..." required>
+                <button type="submit">Chercher</button>
+            </form>
         </div>
         <div>
             <a href="#">Créer</a>
@@ -72,16 +74,20 @@ if (isset($_POST["submit"])) {
     </div>
     <div class="upload-form">
         <form action ="" method="POST" enctype="multipart/form-data">
-            <div class="form-inputs">
-                <div class="AjouterFichier">
-                    <input type="file" name="image"></input>
-                </div>
-                <div class="Description">
-                    <input placeholder="Ajouter une description..." style="padding:10px" name="description"></input>
-                </div>
-                <div class="BoutonPublier">
-                    <input type="submit" placeholder="Publier" name="submit"></input>
-                </div>
+            <div class="Username">
+                <center>
+                    <a>UPLOAD D'IMAGES</a> 
+                </center>
+            <hr>
+            </div>
+            <div class="upload-elements">
+                <input type="file" name="image"></input>
+            </div>
+            <div class="upload-elements" id="PostDescription">
+                <input placeholder="Ajouter une description" type="text" name="username">
+            </div>
+            <div class="upload-elements">
+                <input type="submit" value="Uploader l'image" name="submit"></input>
             </div>
         </form>
     </div>

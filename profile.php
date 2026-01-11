@@ -18,8 +18,7 @@ if (isset($_GET['id'])) {
         $user_found = true;
     }
     else {
-        echo "<script> alert('User does not exist'); </script>";
-        exit();
+        header('Location: index.php');
     }
 }
 ?>
@@ -40,8 +39,10 @@ if (isset($_GET['id'])) {
             <a href="index.php">Accueil</a>
         </div>
         <div class ="BoutonRecherche">
-            <input type="search" placeholder="Miyamoto, chapitre 328..."/>
-            <button>Chercher</button>
+            <form action="search.php" method="GET">
+                <input type="search" name="search_space" placeholder="Rechercher un utilisateur..." required>
+                <button type="submit">Chercher</button>
+            </form>
         </div>
         <div>
             <a href="upload.php">Créer</a>
@@ -63,7 +64,7 @@ if (isset($_GET['id'])) {
     <div class="gallery">
         <?php
         if ($user_found) {
-            $posts_requests = mysqli_prepare($conn,"SELECT id, image_path, description FROM posts WHERE user_id = ?");
+            $posts_requests = mysqli_prepare($conn,"SELECT id, image_path, description FROM posts WHERE creator_id = ?");
             mysqli_stmt_bind_param($posts_requests, "i", $profil_id);
             mysqli_stmt_execute($posts_requests);
             $result_posts = mysqli_stmt_get_result($posts_requests);
@@ -78,7 +79,7 @@ if (isset($_GET['id'])) {
                     echo '        <a href="content.php?id=' . $post_id . '"><img src="' . $image_path . '" width="400" height="390" style="object-fit: cover;"></a>'; 
                     echo '    </div>';
                     echo '    <div class="BoutonsPosts">';
-                    echo '        <a href="like_script.php?id=' . $post_id . '"><button>AIMER &#129655;</button></a>';
+                    echo '        <a href="like_content.php?id=' . $post_id . '"><button>AIMER &#129655;</button></a>';
                     echo '        <a href="share.php?id=' . $post_id . '"><button>PARTAGER &#128227;</button></a>';
                     echo '    </div>';
                     echo '</div>';

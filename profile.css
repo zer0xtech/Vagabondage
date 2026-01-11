@@ -76,7 +76,7 @@ button {
     height:auto;
     display:grid;
     justify-content: center;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap:40px 30px;
     padding: 20px;
 }

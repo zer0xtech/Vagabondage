@@ -46,7 +46,7 @@ div a {
     align-items: center;
     display: flex;
     padding: 10px;
-    gap: 5àx;
+    gap: 5px;
 }
 
 .BoutonRecherche input{
@@ -98,7 +98,7 @@ body {
 }
 
 .Username > a {
-        font-family: "VagabondFont";
+        /* font-family: "VagabondFont"; */
         font-size: 120%;
         color:white;
 }

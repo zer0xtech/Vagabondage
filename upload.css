@@ -40,7 +40,7 @@ div a {
     align-items: center;
     display: flex;
     padding: 10px;
-    gap: 5àx;
+    gap: 5px;
 }
 
 .BoutonRecherche input{
@@ -70,12 +70,24 @@ body {
 }
 
 .upload-form {
-    display: flex;
-    align-items: center;
-    background-color: gray;
+    width: 40%;
+    margin: 0 auto;
+    margin-top: 250px;  
+    height:auto;
+    display:grid;
+    background: grey;
     border-radius: 20px;
-    height: 25%;
-    width: 25%;
-    margin:200px auto;
-    padding:10px;
+    justify-content: center;
+    grid-template-columns: repeat(1, 1fr);
+    gap:40px 30px;
+    padding: 20px;
+}
+
+.upload-elements input{
+    border: 2px solid black;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 30px;
+    outline: none;
+    margin: 3px;
 }
