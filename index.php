@@ -186,7 +186,7 @@ if (isset($_POST["submit_comment"])) {
                     echo '</div>';
                 }
             } else {
-                echo "<label>Error loading the images</label>";
+                echo "<label>No posts were made yet.</label>";
             }
             mysqli_stmt_close($load_posts);
         ?>

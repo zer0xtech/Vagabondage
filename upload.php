@@ -84,7 +84,7 @@ if (isset($_POST["submit"])) {
                 <input type="file" name="image"></input>
             </div>
             <div class="upload-elements" id="PostDescription">
-                <input placeholder="Ajouter une description" type="text" name="username">
+                <input placeholder="Ajouter une description" type="text" name="description">
             </div>
             <div class="upload-elements">
                 <input type="submit" value="Uploader l'image" name="submit"></input>
