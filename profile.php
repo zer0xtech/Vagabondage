@@ -45,17 +45,26 @@ if (isset($_GET['id'])) {
             </form>
         </div>
         <div>
-            <a href="upload.php">Créer</a>
+            <?php
+            if (!$session_connecte = true) {
+                echo '<a href="upload.php">Créer</a>';
+            }
+            ?>
         </div>
         <div class="BoutonProfil">
             <?php
-            if (session_status() === PHP_SESSION_NONE) {
-                session_start();
-            }
             if (isset($_SESSION['id'])) {
                 echo '<a href="profile.php?id=' . $_SESSION['id'] . '">Profil</a>';
+            }
+            ?>
+        </div>
+        <div>
+            <?php
+            if (!isset($_SESSION['id'])) {
+                echo '<a href="register.php">Inscription</a>';
+                echo '<a href="login.php">Connexion</a>';
             } else {
-                echo '<a href="login.php">Se connecter</a>';
+                echo '<a href="logout.php">Déconnexion</a>';
             }
             ?>
         </div>

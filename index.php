@@ -62,14 +62,15 @@ if (isset($_POST["submit_comment"])) {
             <?php
             if (isset($_SESSION['id'])) {
                 echo '<a href="profile.php?id=' . $_SESSION['id'] . '">Profil</a>';
-            } else {
-                echo '<a href="login.php">Connexion</a>';
             }
             ?>
         </div>
         <div>
             <?php
-            if ($session_connecte = true) {
+            if (!isset($_SESSION['id'])) {
+                echo '<a href="register.php">Inscription</a>';
+                echo '<a href="login.php">Connexion</a>';
+            } else {
                 echo '<a href="logout.php">Déconnexion</a>';
             }
             ?>
@@ -186,7 +187,7 @@ if (isset($_POST["submit_comment"])) {
                     echo '</div>';
                 }
             } else {
-                echo "<label>No posts were made yet.</label>";
+                echo "<label>No posts were uploaded yet.</label>";
             }
             mysqli_stmt_close($load_posts);
         ?>
