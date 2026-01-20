@@ -46,7 +46,7 @@ if (isset($_GET['id'])) {
         </div>
         <div>
             <?php
-            if (!$session_connecte = true) {
+            if ($session_connecte = true) {
                 echo '<a href="upload.php">Créer</a>';
             }
             ?>

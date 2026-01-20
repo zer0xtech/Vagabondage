@@ -53,7 +53,7 @@ if (isset($_POST["submit_comment"])) {
         </div>
         <div>
             <?php
-            if (!$session_connecte = true) {
+            if ($session_connecte = true) {
                 echo '<a href="upload.php">Créer</a>';
             }
             ?>
